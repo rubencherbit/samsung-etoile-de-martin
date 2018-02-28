@@ -1,61 +1,12 @@
-# Quiz for Projet caritatif
+# Quiz for Projet caritatif (web client)
 
 
-* projet realiser pour une soirée caritative pour l'association l'étoile de martin
-( project realized for a charity evening for the association l'étoile de martin )
+* 
 ## Getting Started
 
+## Quick start
+   Run `npm run setup` in order to install dependencies and clean the git repo.<br />
+   *We auto-detect `yarn` for installing packages by default, if you wish to force `npm` usage do: `USE_YARN=false npm run setup`*<br />
+   *At this point you can run `npm start` to see the example app at `http://localhost:8888`.*
 
-### Prerequisites
-
-
-```
-```
-
-### Installing
-
-for web_client do
-
-```
-cd webclient && yarn && yarn run setup && yarn start
-```
-
-
-```
-application port is http://localhost:8888
-```
-
-
-## Running the tests
-
-
-### Break down into end to end tests
-
-
-```
-```
-
-### And coding style tests
-
-
-```
-```
-
-## Deployment
-
-
-## Built With
-
-
-## Contributing
-
-
-## Versioning
-
-
-## Authors
-
-## License
-
-## Acknowledgments
-
+Now you're ready to rumble!
