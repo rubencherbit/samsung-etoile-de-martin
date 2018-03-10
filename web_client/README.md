@@ -1,8 +1,8 @@
 # Quiz for Projet caritatif (web client)
 
-
-* 
 ## Getting Started
+`yarn install`
+`yarn start`
 
 ## Quick start
    Run `npm run setup` in order to install dependencies and clean the git repo.<br />
