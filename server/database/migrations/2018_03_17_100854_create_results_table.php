@@ -15,10 +15,13 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('question_id');
             $table->foreign('question_id')
             ->references('id')->on('questions');
+            $table->integer('answer_id');
             $table->foreign('answer_id')
             ->references('id')->on('answers');
+            $table->integer('player_id');
             $table->foreign('player_id')
             ->references('id')->on('players');
             $table->timestamps();
