@@ -14,4 +14,11 @@ class Player extends Model
     protected $fillable = [
         'username', 'score',
     ];
+    /**
+     * Get the comments for the blog post.
+     */
+    public function results()
+    {
+        return $this->hasMany('App\Result');
+    }
 }
