@@ -12,7 +12,7 @@ class Question extends Model
      * @var array
      */
     protected $fillable = [
-        'question'
+        'description'
     ];
     /**
      * Get the answers for the Questions.
