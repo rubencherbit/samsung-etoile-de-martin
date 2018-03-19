@@ -1,12 +1,32 @@
-# Quiz for Projet caritatif (web client)
+# React_starter
+just a react web-client starter
 
-## Getting Started
-`yarn install`
-`yarn start`
+### Based on 
+- react
+- webpack
+- yarn
+- babel
+- (with some ESlint, for the beauty of the code)
 
-## Quick start
-   Run `npm run setup` in order to install dependencies and clean the git repo.<br />
-   *We auto-detect `yarn` for installing packages by default, if you wish to force `npm` usage do: `USE_YARN=false npm run setup`*<br />
-   *At this point you can run `npm start` to see the app at `http://localhost:8888`.*
+### Clone the depo
+```bash 
+git clone https://github.com/tashikomaaa/React_starter.git
+```
 
-Now you're ready to rumble!
+### Install all the dependencies 
+```bash 
+cd React_starter && npm install -save
+```
+
+### Start the project 
+```bash
+yarn start
+```
+
+### For change the starter and make it your's
+#### modify the src folder
+
+
+#### for questions, request send a mail !! 
+
+# Enjoy
