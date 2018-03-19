@@ -14,4 +14,7 @@ class Answer extends Model
     protected $fillable = [
         'description', 'score',
     ];
+    protected $hidden = [
+        'created_at', 'updated_at', 'question_id'
+    ];
 }

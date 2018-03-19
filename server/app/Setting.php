@@ -12,6 +12,6 @@ class Setting extends Model
      * @var array
      */
     protected $fillable = [
-        'property', 'value'
+        'time_start', 'current_question', 'end'
     ];
 }
