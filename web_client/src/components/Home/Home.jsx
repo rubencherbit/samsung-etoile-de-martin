@@ -4,8 +4,10 @@ import styled from 'styled-components';
 
 const Home = ({ className }) => (
     <div className={className}>
-        <div className="container">
-            <a href="/register" className="btn normal">JOUER</a> 
+        <div className="grid-container">
+            <div className="col-1">
+                <a href="/register" className="btn normal">JOUER</a> 
+            </div>
         </div>
     </div>
 )

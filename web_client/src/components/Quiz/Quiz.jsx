@@ -5,17 +5,22 @@ import styled from 'styled-components';
 import Questions from './components/Questions';
 import Responses from './components/Responses';
 
-const Quiz = ({ className }) => (
-    <div className={className}>
-        <div>
-            <Questions />
+class Quiz extends React.Component{ 
+    render() {
+        return (
+        <div className={this.props.className}>
+            <div className="container">
+                <div className="row">
+                    <Questions />
+                </div>
+                <div className="row">
+                    <Responses />
+                </div>
+            </div>
         </div>
-        <br />
-        <div>
-            <Responses />
-        </div>
-    </div>
-)
+        )
+    }
+}
 
 Quiz.propTypes = {
     className: PropTypes.string,

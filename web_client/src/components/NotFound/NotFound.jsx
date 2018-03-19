@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 const NotFound = ({ className }) => (
     <div className={className}>
-        <p>Home</p>
+        <div className="container">
+            <p>Home</p>
+        </div>
     </div>
 )
 

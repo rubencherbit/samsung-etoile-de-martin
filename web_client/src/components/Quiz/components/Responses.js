@@ -4,11 +4,24 @@ import styled from 'styled-components';
 
 const Responses = ({ className }) => (
     <div className={className}>
-    <form action="/result" >
-        <button>Responses 1</button><button>Responses 2</button>
-        <br />
-        <button>Responses 3</button><button>Responses 4</button>
-    </form>
+        <div className="row" >
+            <div className="grid-container" >
+                <div className="col-6" >
+                    <div className="row">
+                        <div className="col-4" >
+                            <a className="btn normal">reponse A</a>
+                            <a className="btn normal">reponse B</a>
+                        </div>
+                    </div>
+                    <div className="row" >
+                        <div className="col-4" >
+                            <a className="btn normal">reponse C</a>
+                            <a className="btn normal">reponse D</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 )
 

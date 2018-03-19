@@ -4,7 +4,13 @@ import styled from 'styled-components';
 
 const Questions = ({ className }) => (
     <div className={className}>
-        <p>Questions N°</p> 
+        <div className="row" >
+            <div className="grid-container" >
+                <div className="col-6">
+                    <p>Question N°</p>
+                </div>
+            </div>
+        </div>
     </div>
 )
 
