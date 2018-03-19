@@ -1,23 +1,22 @@
 import React from 'react';
-import { Row, Col, Image, Button } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
+import HeaderComponent from '../HeaderComponent/index';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Row className="show-grid">
-        <Col xs={6} md={4}>
-          <Row>
-            <Col xs={6} md={4}>
-              <Image src="https://stockagehelloassoprod.blob.core.windows.net/images/logos/l-etoile-de-martin.jpg" rounded />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} md={4}>
-              <Button bsStyle="success">Jouer</Button>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+    
+    <div>    
+      <HeaderComponent></HeaderComponent>
+      <div className="wrapper wrapper-text-header grid-x align-center">
+          <div className="container container-text cell large-8 medium-8 small-10">
+            <h1> 
+              <FormattedMessage {...messages.header} />
+            </h1>
+          </div>
+      </div>
+    </div>    
     );
   }
 }
