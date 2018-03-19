@@ -15,6 +15,7 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->unique(['question_id', 'player_id']);
             $table->integer('question_id')->unsigned();
             ;
             $table->foreign('question_id')
