@@ -2,119 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use App\Question;
 use Illuminate\Http\Request;
+use Dingo\Api\Routing\Helpers;
+use App\Question;
+use App\Answer;
+use App\Result;
+use App\Player;
+use App\Http\Requests\StorePlayer;
+use App\Http\Requests\StoreResult;
+use App\Transformers\QuestionTransformers;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index(Request $request)
-    {
-        $keyword = $request->get('search');
-        $perPage = 25;
+    use Helpers;
 
-        if (!empty($keyword)) {
-            $question = Question::where('description', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
-        } else {
-            $question = Question::paginate($perPage);
-        }
-
-        return view('question.index', compact('question'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        return view('question.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function store(Request $request)
-    {
-        
-        $requestData = $request->all();
-        
-        Question::create($requestData);
-
-        return redirect('question')->with('flash_message', 'Question added!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\View\View
-     */
     public function show($id)
     {
-        $question = Question::findOrFail($id);
+        $question = Question::where('id', $id)->first();
 
-        return view('question.show', compact('question'));
+        if ($question) {
+            return $this->item($question, new QuestionTransformers);
+        }
+
+        return $this->response->errorNotFound();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\View\View
-     */
-    public function edit($id)
+    public function showAnswers($id)
     {
-        $question = Question::findOrFail($id);
+        $question = Question::where('id', $id)->first();
 
-        return view('question.edit', compact('question'));
+        if ($question) {
+            return $question->answers()->get();
+        }
+
+        return $this->response->errorNotFound();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function update(Request $request, $id)
+    public function storeResult(StoreResult $request)
     {
-        
-        $requestData = $request->all();
-        
-        $question = Question::findOrFail($id);
-        $question->update($requestData);
+        $answer_id = $request->request->get('answer_id');
+        $player_id = $request->request->get('player_id');
+        $question_id = $request->request->get('question_id');
 
-        return redirect('question')->with('flash_message', 'Question updated!');
-    }
+        if (Result::Create($request->all()) && empty($result)) {
+            $answer = Answer::where('id', $answer_id)->first();
+            if ($answer->score == 1) {
+                $player = Player::where('id', $player_id)->first();
+                $player->score = $player->score + 1;
+                $player->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function destroy($id)
-    {
-        Question::destroy($id);
-
-        return redirect('question')->with('flash_message', 'Question deleted!');
+                return $this->response->created();
+            }
+            return $this->response->created();
+        }
+        return $this->response->errorBadRequest();
     }
 }
