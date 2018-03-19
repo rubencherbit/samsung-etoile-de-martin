@@ -1,7 +1,7 @@
 {
-    "name": "web-client",
+    "name": "bootstrap",
     "version": "1.0.0",
-    "description": " React web app with Webpack 2",
+    "description": "Scaffold React web app with Webpack 2",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
