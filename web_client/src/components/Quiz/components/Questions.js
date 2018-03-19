@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const NotFound = ({ className }) => (
+const Questions = ({ className }) => (
     <div className={className}>
-        <p>Home</p>
+        <p>Questions N°</p> 
     </div>
 )
 
-NotFound.propTypes = {
+Questions.propTypes = {
     className: PropTypes.string,
 };
 
-export default styled(NotFound) `
+export default styled(Questions)`
 
 `;

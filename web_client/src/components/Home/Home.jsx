@@ -1,13 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-class Home extends React.Component {
-    render() {
-        return (
-            <div className="container">
-                
-            </div>
-        );
-    }
-}
+const Home = ({ className }) => (
+    <div className={className}>
+        <div className="container">
+            <a href="/register" className="btn normal">JOUER</a> 
+        </div>
+    </div>
+)
 
-export default Home;
+Home.propTypes = {
+    className: PropTypes.string,
+};
+
+export default styled(Home)`
+
+`;
