@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 import Questions from './components/Questions';
 import Responses from './components/Responses';
-
+/**
+ * 
+ */
 class Quiz extends React.Component{ 
     render() {
         return (

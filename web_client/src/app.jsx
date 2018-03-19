@@ -13,7 +13,9 @@ import NotFound from './components/NotFound';
 // Import CSS reset and Global Styles
 import './global-styles';
 
-
+/**
+ * 
+ */
 ReactDOM.render(
     <Router>
         <div className="row">
