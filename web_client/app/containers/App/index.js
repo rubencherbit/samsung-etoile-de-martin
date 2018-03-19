@@ -16,14 +16,21 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import QuizPage from 'containers/QuizPage/Loadable';
+import Register from 'containers/Register/Loadable';
+import { Row, Col } from 'react-bootstrap';
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Row>
+      <Col>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/quiz" component={QuizPage} />
+          <Route exact path="/register" component={Register} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Col>
+    </Row>
   );
 }
