@@ -6,6 +6,10 @@ injectGlobal`
 	@import "node_modules/foundation-sites/scss/foundation";
 	@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
+	* {
+    	box-sizing: border-box;
+	}
+
 	html,
 	body {
 		height: 100%;
@@ -13,15 +17,17 @@ injectGlobal`
         margin: 0;
 		padding: 0;
 		color: black;
+		overflow-x: hidden;
 	}
 
 	body {
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-family: 'Quicksand', sans-serif;
 	}
 
 	body.fontLoaded {
-		font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-family: 'Quicksand', sans-serif;
 	}
+	
 
 	#react {
 		background-color: #fafafa;
@@ -99,19 +105,7 @@ injectGlobal`
         .col-5{ width: 100%;    }
         .col-6{ width: 100%;    }
     }
-	.btn.pink {
-		color:#fff!important;
-		text-decoration: none;
-        font-weight: bold;
-        text-tranform: capitalize;
-        font-size: .9rem;
-		background-color: #d13581;
-		padding: 10px;
-		border-radius: 2px;
-		box-shadow: 0 0 1px 0px rgba(0,0,0, .1);
-		border:1px solid #e5e5e5;
-		cursor: pointer;
-	}
+	
 	    .btn.normal {
             background: #34d99c;
 			background-image: -webkit-linear-gradient(top, #34d99c, #42eda9);
