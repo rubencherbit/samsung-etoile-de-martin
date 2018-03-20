@@ -10,7 +10,7 @@ const Questions = ({ className }) => (
         <div className="row" >
             <div className="grid-container" >
                 <div className="col-6">
-                    <p>Question N°</p>
+                    <h3>Question N°</h3>
                 </div>
             </div>
         </div>
@@ -22,5 +22,9 @@ Questions.propTypes = {
 };
 
 export default styled(Questions)`
-
+    h3 {
+        color:#545454;
+        font-size: 2rem;
+        margin: 20px 0;
+    }
 `;

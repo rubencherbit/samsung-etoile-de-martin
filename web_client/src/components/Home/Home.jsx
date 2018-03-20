@@ -17,7 +17,7 @@ const Home = ({ className }) => (
 			</div>
 			<div className="container-btn">
 				<div className="btn btn-play">
-					<a href="/register" className="btn normal btn-home">Jouer</a> 
+					<a href="/register" className="btn-home">Quizz</a> 
 				</div>
 			</div>
 		</div>
@@ -33,7 +33,7 @@ export default styled(Home)`
 		width: 100%;
 		height: 100%;
 		padding:5px 10px;
-
+		margin-bottom: 50px;
 		.intro-container {
 			margin-bottom: 50px;
 			margin: 50px 0;
@@ -52,11 +52,14 @@ export default styled(Home)`
 		.container-btn {
 			text-align:center;
 			.btn-home {
+				text-decoration: none;
 				text-transform: uppercase;
 				font-weight: bold;
 				letter-spacing: 3px;
 				padding: 1rem 3rem;
 				margin: 0;
+				color: #ffffff;
+				font-size: 20px;
 				background: #5db2b6;
 				font-family: 'Quicksand',sans-serif;
 				border-radius: 10px;
@@ -64,13 +67,13 @@ export default styled(Home)`
   				transition: .15s ease-out;
   				&:focus {
   					transition: .15s ease-out;
-  					box-shadow: 0px 5px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
-  					font-size: 1rem;
+  					box-shadow: 0px 7px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
+  					font-size: 1.1rem;
   				}
   				&:hover {
   					transition: .15s ease-out;
-  					box-shadow: 0px 5px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
-  					font-size: 1rem;
+  					box-shadow: 0px 7px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
+  					font-size: 1.1rem;
   				}
 			}
 		}
