@@ -10,6 +10,7 @@ import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
+import Congratulation from './components/Congratulation';
 // Import CSS reset and Global Styles
 import './global-styles';
 
@@ -25,6 +26,7 @@ ReactDOM.render(
                 <Route exact path='/register' component={ Register } />
                 <Route exact path='/quiz' component={ Quiz } />
                 <Route exact path='/result' component={ Result } />
+                <Route exact path='/congratulation' component={ Congratulation} />
                 <Route component={ NotFound } />
             </Switch>
         </div>
