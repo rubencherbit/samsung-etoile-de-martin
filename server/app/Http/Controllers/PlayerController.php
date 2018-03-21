@@ -18,4 +18,14 @@ class PlayerController extends Controller
         }
         return $this->response->errorBadRequest();
     }
+    public function show($id)
+    {
+        $player = player::where('id', $id)->first();
+
+        if ($player) {
+            return $player;
+        }
+
+        return $this->response->errorNotFound();
+    }
 }
