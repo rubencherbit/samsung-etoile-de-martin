@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('question', 'QuestionController');
+Route::get('answerCreate/{id}', [
+    'as' => 'answerCreate',
+    'uses' => 'AnswerController@create'
+]);
+Route::get('answerEdit/{id}/{questionId}', [
+    'as' => 'answerEdit',
+    'uses' => 'AnswerController@edit'
+]);
+
+Route::resource('answer', 'AnswerController');
