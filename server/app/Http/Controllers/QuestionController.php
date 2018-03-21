@@ -27,6 +27,53 @@ class QuestionController extends Controller
         return $this->response->errorNotFound();
     }
 
+    public function showAllScore()
+    {
+        $results = Result::all();
+        $score = ['true' => 0, 'false' => 0];
+        foreach ($results as $result) {
+            $answer = Answer::where('id', $result->answer_id)->first();
+            if ($answer->score === 1) {
+                $score['true']++;
+            } else {
+                $score['false']++;
+            }
+        }
+        $nb_total = $score['true'] + $score['false'];
+        $finalStat = ['true' => ($score['true'] / $nb_total) * 100, 'false' => ($score['false'] / $nb_total) * 100];
+        return $finalStat;
+        if ($question) {
+            return $this->item($question, new questiontransformers);
+        }
+
+        return $this->response->errorNotFound();
+    }
+
+    public function showScore($id)
+    {
+        $results = Result::where('question_id', $id)->get();
+        if (count($results) === 0) {
+            return $this->response->errorNotFound();
+        }
+        $score = ['true' => 0, 'false' => 0];
+        foreach ($results as $result) {
+            $answer = Answer::where('id', $result->answer_id)->first();
+            if ($answer->score === 1) {
+                $score['true']++;
+            } else {
+                $score['false']++;
+            }
+        }
+        $nb_total = $score['true'] + $score['false'];
+        $finalStat = ['true' => ($score['true'] / $nb_total) * 100, 'false' => ($score['false'] / $nb_total) * 100];
+        return $finalStat;
+        if ($question) {
+            return $this->item($question, new questiontransformers);
+        }
+
+        return $this->response->errorNotFound();
+    }
+
     public function showAnswers($id)
     {
         $question = Question::where('id', $id)->first();
