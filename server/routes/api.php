@@ -17,7 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
-    $api->post('players', 'App\Http\Controllers\PlayerController@store');
+    $api->get('players/{id}', 'App\Http\Controllers\PlayerController@show');
+    $api->get('questions/score', 'App\Http\Controllers\QuestionController@showAllScore');
+    $api->get('questions/{id}/score', 'App\Http\Controllers\QuestionController@showScore');
+    $api->post('players', 'App\Http\Controllers\PlayerController@show');
     $api->get('questions/{id}', 'App\Http\Controllers\QuestionController@show');
     $api->post('questions/{id}/result', 'App\Http\Controllers\QuestionController@storeResult');
 });
