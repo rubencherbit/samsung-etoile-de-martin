@@ -14,6 +14,15 @@ class Player extends Model
     protected $fillable = [
         'username', 'score',
     ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at', 'updated_at',
+    ];
     /**
      * Get the comments for the blog post.
      */

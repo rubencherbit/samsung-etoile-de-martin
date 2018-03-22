@@ -12,6 +12,15 @@ class Setting extends Model
      * @var array
      */
     protected $fillable = [
-        'time_start', 'current_question', 'end'
+        'question_id', 'end'
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at', 'updated_at',
     ];
 }
