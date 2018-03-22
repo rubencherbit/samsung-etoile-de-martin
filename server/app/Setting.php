@@ -21,6 +21,6 @@ class Setting extends Model
      * @var array
      */
     protected $hidden = [
-        'created_at', 'updated_at',
+        'created_at', 'updated_at', 'id'
     ];
 }
