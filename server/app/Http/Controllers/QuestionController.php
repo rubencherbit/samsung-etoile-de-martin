@@ -206,9 +206,9 @@ class QuestionController extends Controller
                 $player->score = $player->score + 1;
                 $player->save();
 
-                return $this->response->created();
+                return $this->response->array('true')->setStatusCode(201);
             }
-            return $this->response->created();
+            return $this->response->array('true')->setStatusCode(201);
         }
         return $this->response->errorBadRequest();
     }
