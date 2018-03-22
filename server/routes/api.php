@@ -24,7 +24,7 @@ $api->version('v1', function ($api) {
     $api->get('questions/{id}', 'App\Http\Controllers\QuestionController@show');
     $api->post('questions/{id}/result', 'App\Http\Controllers\QuestionController@storeResult');
     $api->get('setting', 'App\Http\Controllers\SettingController@show');
-    $api->get('setting/nextquestion', 'App\Http\Controllers\SettingController@next_question');
+    $api->get('setting/next', 'App\Http\Controllers\SettingController@next_question');
     $api->get('setting/end', 'App\Http\Controllers\SettingController@end');
     $api->get('setting/reset', 'App\Http\Controllers\SettingController@reset');
 });
