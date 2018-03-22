@@ -1,9 +1,7 @@
-/* eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import GetQuestion from '../../../handlers/GetQuestion';
 /**
  * 
  * @param {*} param0 
@@ -12,67 +10,104 @@ class Questions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            answer_id: '',
+            answer_id: 0,
             current_question: 1,
             user_id: this.props.user_id,
-            question: {},
+            question: null,
+            time: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
-    componentWillMount() {
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ time: true });
+        }, 2000);
         fetch('http://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
         })
             .then(res => res.json())
             .then(json => {
-                this.setState({ question: json.data, current_question: this.state.current_question + 1})
-            });
+                this.setState({ question: json.data})
+            })
     }
+    giveResult() {
+        fetch('http://api.quizzetoile.fr/api/questions/'+this.state.current_question+"/result", {
+            method: 'POST',
+            body: JSON.stringify({
+                question_id: this.state.current_question,
+                answer_id: this.state.answer_id,
+                player_id: this.state.user_id,
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(res => console.log(res.json()))// eslint-disable-line
+
+    }
+
     handleChange(event) {
         this.setState({ answer_id: event.target.answer_id });
     }
 
-    handleSubmit(event) {
+    handleClick(event) {
+        this.setState({ answer_id: event.target.value })
+        this.giveResult();
         event.preventDefault();
     }
 
 
     render() {
-        return (
-            <div className={this.props.className}>
-                <div className="row" >
-                    <div className="grid-container" >
-                        <div className="col-6">
-                            <h3>Question N° {this.state.question.id}</h3>
-                            <br />
-                            <h2>{this.state.question.description}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
+        if (this.state.question) {
+            const answers = this.state.question.answers;
+
+            return (
+                <div className={this.props.className}>
                     <div className="row" >
                         <div className="grid-container" >
-                            <form onSubmit={this.handleSubmit} className="col-6">
-                                <div className="row">
-                                    <div className="col-4 container-center" >
-                                    {this.state.question.answers && this.state.question.answers.forEach(answer => {
-                                        <button value={answer.id} type="submit" className="btn-answer" >{answer.description}</button>
-                                    })}
-                                    </div>
-                                </div>
-                                <div className="row" >
-                                    <div className="col-4 container-center" >
-                                        <button className="btn-answer" href="/result">C</button>
-                                        <button className="btn-answer" href="/result">D</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <div className="col-6">
+                                <h3>Question N° {this.state.question.id}</h3>
+                                <br />
+                                <h2>{this.state.question.description}</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div className="row">
+                        <div className="row" >
+                            <div className="grid-container" >
+                                <div className="col-6">
+                                    <div className="row">
+                                        <div className="col-4 container-center" >
+                                            {answers.map((answer, key) => {
+                                                if(key < 2){
+                                                    return (
+                                                        <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
+                                                    )
+                                                }
+                                            })}
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-4 container-center" >
+                                                {answers.map((answer, key) => {
+                                                    if (key > 1) {
+                                                        return (
+                                                            <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+        return(
+            <div>Loading ... </div>
         )
     }
 }
