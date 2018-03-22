@@ -1,7 +1,10 @@
+/* eslint-disable */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import RegisterHandlers from '../../handlers/RegisterHandlers';
+
+import Quiz from '../Quiz';
 
 /**
  * 
@@ -11,36 +14,59 @@ import RegisterHandlers from '../../handlers/RegisterHandlers';
 class Register extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { value: '' };
+		this.state = { 
+			value: '',
+			next: false,
+			user: {},
+		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
 	handleChange(event) {
 		this.setState({ value: event.target.value });
 	}
+	getUser() {
+		fetch('http://api.quizzetoile.fr/api/players', {
+			method: 'POST',
+			body: JSON.stringify({
+				username: this.state.value
+			}),
+			headers: { 'Content-Type': 'application/json' },
+		})
+			.then(res => res.json())
+			.then(json => {
+				this.setState({ user: json.player })
+				this.setState({ next: true })
+			});
+	}
 
 	handleSubmit(event) {
-		RegisterHandlers(this.state)
+		this.getUser();
 		event.preventDefault();
 	}
 
 	render() {
-		return (
-			<div className={this.props.className}>
-				<div className="wrapper wrapper-register">
-					<h3>N° de vestiaire</h3>
-					<form onSubmit={this.handleSubmit}>
-						<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
-						<div className="container-btn">
-							<div className="btn">
-								<button className="btn-play" type="submit">Jouer</button>
-							</div>
+		if (this.state.user.id) {
+			return <Quiz user={this.state.user} />
+		} else {
+			return (
+				<div className={this.props.className}>
+						<div className="wrapper wrapper-register">
+							<h3>N° de vestiaire</h3>
+							<form onSubmit={this.handleSubmit}>
+								<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
+								<div className="container-btn">
+									<div className="btn">
+										<button className="btn-play" type="submit">Jouer</button>
+									</div>
+								</div>
+							</form>
 						</div>
-					</form>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
  }
 

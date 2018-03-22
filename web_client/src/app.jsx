@@ -6,11 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Components
 import Header from './components/Header';
 import Home from './components/Home';
-import Quiz from './components/Quiz';
-import Result from './components/Result';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
-import Congratulation from './components/Congratulation';
 // Import CSS reset and Global Styles
 import './global-styles';
 
@@ -23,10 +20,7 @@ ReactDOM.render(
             <Header />
             <Switch>
                 <Route exact path='/' component={ Home } />
-                <Route exact path='/register' component={ Register } />
-                <Route exact path='/quiz' component={ Quiz } />
-                <Route exact path='/result' component={ Result } />
-                <Route exact path='/congratulation' component={ Congratulation} />
+                <Route exact path='/quiz' component={Register } />
                 <Route component={ NotFound } />
             </Switch>
         </div>

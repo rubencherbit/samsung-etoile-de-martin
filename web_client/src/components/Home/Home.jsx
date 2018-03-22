@@ -18,7 +18,7 @@ const Home = ({ className }) => (
 			</div>
 			<div className="container-btn">
 				<div className="btn btn-play">
-					<a href="/register" className="btn-home">Quizz</a> 
+					<a href="/quiz" className="btn-home">Quizz</a> 
 				</div>
 			</div>
 		</div>

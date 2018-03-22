@@ -5,31 +5,58 @@ import styled from 'styled-components';
  * 
  * @param {*} param0 
  */
-const Responses = ({ className }) => (
-    <div className={className}>
-        <div className="row" >
-            <div className="grid-container" >
-                <div className="col-6" >
-                    <div className="row">
-                        <div className="col-4 container-center" >
-                            <a className="btn-answer" href="/result">A</a>
-                            <a className="btn-answer" href="/result">B</a>
-                        </div>
-                    </div>
-                    <div className="row" >
-                        <div className="col-4 container-center" >
-                            <a className="btn-answer" href="/result">C</a>
-                            <a className="btn-answer" href="/result">D</a>
-                        </div>
+class Responses extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    componentWillMount() {
+
+    }
+    handleChange(event) {
+        this.setState({ answer_id: event.target.answer_id });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <div className={this.props.className}>
+                <div className="row" >
+                    <div className="grid-container" >
+                        <form className="col-6" >
+                            <div className="row">
+                                <div className="col-4 container-center" >
+                                    <a className="btn-answer" href="/result">{this.props.question.answers[0]}</a>
+                                    <a className="btn-answer" href="/result">B</a>
+                                </div>
+                            </div>
+                            <div className="row" >
+                                <div className="col-4 container-center" >
+                                    <a className="btn-answer" href="/result">C</a>
+                                    <a className="btn-answer" href="/result">D</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-)
+        )
+    }
+}
 
 Responses.propTypes = {
     className: PropTypes.string,
+    current_question: PropTypes.number,
+    answer_id: PropTypes.number,
+    user_id: PropTypes.number,
+    question: PropTypes.object,
 };
 
 export default styled(Responses) `
