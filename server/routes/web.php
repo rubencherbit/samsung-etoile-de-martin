@@ -25,6 +25,11 @@ Route::get('/admin', function () {
 */
 Route::resource('question', 'QuestionController');
 
+Route::get('showQuestion/{question}', [
+    'as' => 'showQuestion',
+    'uses' => 'QuestionController@showQuestion'
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Route Answer
