@@ -10,17 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
 });
 
 
-Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
+/*
+|--------------------------------------------------------------------------
+| Route Question
+|--------------------------------------------------------------------------
+|
+*/
 Route::resource('question', 'QuestionController');
+
+Route::get('showQuestion/{question}', [
+    'as' => 'showQuestion',
+    'uses' => 'QuestionController@showQuestion'
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Route Answer
+|--------------------------------------------------------------------------
+|
+*/
+Route::resource('answer', 'AnswerController');
+
 Route::get('answerCreate/{id}', [
     'as' => 'answerCreate',
     'uses' => 'AnswerController@create'
@@ -29,5 +46,3 @@ Route::get('answerEdit/{id}/{questionId}', [
     'as' => 'answerEdit',
     'uses' => 'AnswerController@edit'
 ]);
-
-Route::resource('answer', 'AnswerController');

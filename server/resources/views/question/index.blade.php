@@ -39,7 +39,7 @@
                                         <td>{{ $loop->iteration or $item->id }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
-                                            <a href="{{ url('/question/' . $item->id) }}" title="View Question"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ route('showQuestion', ['id' => $item->id]) }}" title="View Question"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/question/' . $item->id . '/edit') }}" title="Edit Question"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             <a href="{{ route('answerCreate', ['id' => $item->id]) }}" title="Answer"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Answer</button></a>
 
