@@ -58,7 +58,7 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
         ]),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
     devServer: {
         historyApiFallback: true,

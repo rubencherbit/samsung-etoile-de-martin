@@ -1,25 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import RegisterHandlers from '../../handlers/RegisterHandlers';
+
 /**
  * 
  * @param {*} param0 
  */
-const Register = ({ className }) => (
-	<div className={className}>
-		<div className="wrapper wrapper-register">
-			<h3>N° de vestiaire</h3>
-			<form action="/quiz">
-				<input type="text" placeholder="EX : 4548947"/>
-				<div className="container-btn">
-					<div className="btn">
-						<button className="btn-play" type="submit">Jouer</button>
-					</div>
+
+class Register extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { value: '' };
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	handleChange(event) {
+		this.setState({ value: event.target.value });
+	}
+
+	handleSubmit(event) {
+		RegisterHandlers(this.state)
+		event.preventDefault();
+	}
+
+	render() {
+		return (
+			<div className={this.props.className}>
+				<div className="wrapper wrapper-register">
+					<h3>N° de vestiaire</h3>
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
+						<div className="container-btn">
+							<div className="btn">
+								<button className="btn-play" type="submit">Jouer</button>
+							</div>
+						</div>
+					</form>
 				</div>
-			</form>
-		</div>
-	</div>
-)
+			</div>
+		);
+	}
+ }
 
 Register.propTypes = {
 	className: PropTypes.string,

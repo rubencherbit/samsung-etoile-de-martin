@@ -18,6 +18,9 @@
         "document": true,
         "require": true,
         "__dirname": true,
-        "module": true
+        "module": true,
+        "fetch": true,
+        "setTimeout": true,
+        "console": true
     }
 }
