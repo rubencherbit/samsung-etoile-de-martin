@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import CheckStart from '../../handlers/CheckStart';
 import Questions from './components/Questions';
 
 /**
@@ -12,14 +13,18 @@ class Quiz extends React.Component{
 
     render() {
         const id = this.props.user.id;
-
+        console.log(id)
         return (
             <div className={this.props.className}>
+            { CheckStart ? 
                 <div className="container">
                     <div className="row">
                         <Questions user_id={id}/>
                     </div>
                 </div>
+                : 
+                <div>Loading...</div>
+            }
             </div>
         )
     }

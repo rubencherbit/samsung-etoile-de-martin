@@ -24,7 +24,7 @@ class Questions extends React.Component {
         setTimeout(() => {
             this.setState({ time: true });
         }, 2000);
-        fetch('http://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
+        fetch('https://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ class Questions extends React.Component {
             })
     }
     giveResult() {
-        fetch('http://api.quizzetoile.fr/api/questions/'+this.state.current_question+"/result", {
+        fetch('https://api.quizzetoile.fr/api/questions/'+this.state.current_question+"/result", {
             method: 'POST',
             body: JSON.stringify({
                 question_id: this.state.current_question,
@@ -60,7 +60,6 @@ class Questions extends React.Component {
     render() {
         if (this.state.question) {
             const answers = this.state.question.answers;
-
             return (
                 <div className={this.props.className}>
                     <div className="row" >

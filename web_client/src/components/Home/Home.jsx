@@ -11,10 +11,10 @@ const Home = ({ className }) => (
 		<div className="wrapper wrapper-home">
 			<div className="intro-container">
 				<h3 className="intro-text intro-text-first">Bonsoir et bienvenue</h3>
-				<h3 className="intro-text intro-text-second">à la soirée bla bla bla!</h3>
+				<h3 className="intro-text intro-text-second">à la soirée !</h3>
 			</div>
 			<div className="intro-container intro-container-detail">
-				<p>Explication, Morbi pretium turpis at sapien vehicula condimentum. Praesent a urna in diam consectetur dapibus. Duis sollicitudin tincidunt efficitur. Curabitur molestie odio arcu, non dapibus sapien malesuada ut. Fusce fermentum massa nisi, eget fermentum metus sagittis vel. Pellentesque molestie magna ante, aliquet sagittis leo mattis sed.</p>
+				<p>Explication, Morbi pretium turpis at sapien vehicula condimentum. </p>
 			</div>
 			<div className="container-btn">
 				<div className="btn btn-play">

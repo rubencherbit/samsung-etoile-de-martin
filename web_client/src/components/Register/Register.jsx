@@ -16,7 +16,6 @@ class Register extends React.Component {
 		super(props);
 		this.state = { 
 			value: '',
-			next: false,
 			user: {},
 		};
 
@@ -28,7 +27,7 @@ class Register extends React.Component {
 		this.setState({ value: event.target.value });
 	}
 	getUser() {
-		fetch('http://api.quizzetoile.fr/api/players', {
+		fetch('https://api.quizzetoile.fr/api/players', {
 			method: 'POST',
 			body: JSON.stringify({
 				username: this.state.value
@@ -38,7 +37,6 @@ class Register extends React.Component {
 			.then(res => res.json())
 			.then(json => {
 				this.setState({ user: json.player })
-				this.setState({ next: true })
 			});
 	}
 
@@ -49,21 +47,22 @@ class Register extends React.Component {
 
 	render() {
 		if (this.state.user.id) {
+			console.log(this.state.user)
 			return <Quiz user={this.state.user} />
 		} else {
 			return (
 				<div className={this.props.className}>
-						<div className="wrapper wrapper-register">
-							<h3>N° de vestiaire</h3>
-							<form onSubmit={this.handleSubmit}>
-								<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
-								<div className="container-btn">
-									<div className="btn">
-										<button className="btn-play" type="submit">Jouer</button>
-									</div>
+					<div className="wrapper wrapper-register">
+						<h3>N° de vestiaire</h3>
+						<form onSubmit={this.handleSubmit}>
+							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
+							<div className="container-btn">
+								<div className="btn">
+									<button className="btn-play" type="submit">Jouer</button>
 								</div>
-							</form>
-						</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			);
 		}

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const API = 'http://api.quizzetoile.fr/api/settings';
+const API = 'https://api.quizzetoile.fr/api/setting';
 const opt = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -56,17 +56,14 @@ const App = ({ data, isLoading, error }) => {
     const hits = data.hits || [];
 
     if (error) {
-        return <p>{error.message}</p>;
+        return error.message;
     }
 
     if (isLoading) {
-        return <p>Loading ...</p>;
+        return isLoading;
     }
 
-    return (
-        <div>
-        </div>
-    );
+    return true;
 }
 
 App.propTypes = {
