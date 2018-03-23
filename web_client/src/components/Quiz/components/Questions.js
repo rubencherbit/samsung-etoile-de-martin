@@ -54,9 +54,7 @@ class Questions extends React.Component {
             .then(res => res.json())
             .then(json => {
                 this.setState({ next: json.question_id, end: json.end })
-                console.log(json);//eslint-disable-line
             })
-            console.log(this.state.current_question, this.state.next);//eslint-disable-line
         if (this.state.next == this.state.current_question) {
             if(this.state.end != 1) {
                 this.getQuestion();
