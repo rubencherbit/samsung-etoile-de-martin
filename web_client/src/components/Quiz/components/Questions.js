@@ -62,9 +62,8 @@ class Questions extends React.Component {
     }
 
     handleClick(event) {
-        this.setState({ answer_id: event.target.value, question: null }, () => {
-            this.giveResult();
-        })
+        this.setState({ answer_id: event.target.value, question: null })
+        this.giveResult()
         event.preventDefault();
     }
 
