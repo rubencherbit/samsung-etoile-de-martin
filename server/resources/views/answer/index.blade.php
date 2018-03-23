@@ -9,9 +9,6 @@
                 <div class="card">
                     <div class="card-header">Answer</div>
                     <div class="card-body">
-                        <a href="{{ url('/answer/create') }}" class="btn btn-success btn-sm" title="Add New Answer">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
 
                         <form method="GET" action="{{ url('/answer') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
@@ -38,7 +35,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
                                         <td>{{ App\Question::find($item->question_id)->description }}</td>
-                                       <td>{{ $item->description }}</td><td>{{ $item->score }}</td> 
+                                       <td>{{ $item->description }}</td><td>{{ $item->score }}</td>
                                         <td>
                                             <a href="{{ url('/answer/' . $item->id) }}" title="View Answer"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ route('answerEdit', ['id' => $item->id, 'questionId' => $item->question_id]) }}" title="Edit Answer"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
