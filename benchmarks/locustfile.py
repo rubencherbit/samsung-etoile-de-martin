@@ -18,7 +18,7 @@ ANSWER_RATIO = 1
 API_URL = "http://api.quizzetoile.fr/api"
 
 def generate_name(length):
-    return ''.join([random.choice(string.ascii_letters) for n in range(length)])
+    return ''.join([random.choice(string.ascii_letters) for _ in range(length)])
 
 class DumbPeopleBehavior(TaskSet):
     current_question = None
@@ -74,7 +74,7 @@ class DumbPeopleBehavior(TaskSet):
             }
 
             if DEBUG: print("On va repondre avec cette payload", payload)
-            res_question_reponse = self.client.post("/questions/{}/result".format(self.current_question_id), payload)
+            self.client.post("/questions/{}/result".format(self.current_question_id), payload)
             self.already_answer = True
 
 class EtoileDeMartinYOLO(HttpLocust):
