@@ -32,7 +32,10 @@ class Register extends React.Component {
 			body: JSON.stringify({
 				username: this.state.value
 			}),
-			headers: { 'Content-Type': 'application/json' },
+			headers: {
+				'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+				'Content-Type': 'application/json',
+			},
 		})
 			.then(res => res.json())
 			.then(json => {

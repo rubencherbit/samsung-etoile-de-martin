@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Loading from '../../Loading';
+import Result from '../../Result';
 /**
  * 
  * @param {*} param0 
@@ -13,34 +14,57 @@ class Questions extends React.Component {
         super(props);
         this.state = {
             answer_id: null,
-            current_question: 0,
+            current_question: 1,
             user_id: this.props.user_id,
             question: null,
             result: null,
             time: false,
+            next: null,
+            end: null,
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
-        this.getQuestion();
+        this.getCurrent()
     }
 
     getQuestion() {
-        this.setState({ current_question: this.state.current_question + 1})
         fetch('https://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
+            headers: {
+                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+                'Content-Type': 'application/json',
+            }
         })
             .then(res => res.json())
             .then(json => {
                 this.setState({ question: json.data })
             })
-        
+    }
+    getCurrent() {
+        fetch('https://api.quizzetoile.fr/api/setting', {
+            method: 'GET',
+            headers: {
+                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => res.json())
+            .then(json => {
+                this.setState({ next: json.question_id, end: json.end })
+                console.log(json);//eslint-disable-line
+            })
+            console.log(this.state.current_question, this.state.next);//eslint-disable-line
+        if (this.state.next == this.state.current_question) {
+            if(this.state.end != 1) {
+                this.getQuestion();
+            }
+        }
     }
 
     giveResult() {
-        console.log(this.state.answer_id);// eslint-disable-line
         fetch('https://api.quizzetoile.fr/api/questions/'+this.state.current_question+"/result", {
             method: 'POST',
             body: JSON.stringify({
@@ -48,11 +72,14 @@ class Questions extends React.Component {
                 answer_id: this.state.answer_id,
                 player_id: this.state.user_id,
             }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+                'Content-Type': 'application/json',
+            },
         })
             .then(res => res.json())
             .then(json => {
-                this.setState({ result: json.status_code})
+                this.setState({ result: json.status_code, current_question: this.state.current_question + 1})
             })
 
     }
@@ -62,14 +89,14 @@ class Questions extends React.Component {
     }
 
     handleClick(event) {
-        this.setState({ answer_id: event.target.value, question: null })
-        this.giveResult()
+        this.setState({ answer_id: event.target.value, question: null }, () => {
+            this.giveResult();
+        })
         event.preventDefault();
     }
 
 
     render() {
-
         if (this.state.question) {
             if(this.state.question.id != 0 && this.state.question.id === this.state.current_question){
                 const answers = this.state.question.answers;
@@ -117,15 +144,21 @@ class Questions extends React.Component {
                         </div>
                     )
                 }
-        } else if(this.state.result) {
-            this.getQuestion()
-            return (<Loading />)
-        } else {
-            this.getQuestion()
+        } else if(this.state.result){
+            this.getCurrent()
             return (
                 <Loading />
             )
         }
+        if(this.state.end != 0) {
+            return (
+                <Result />
+            )
+        }
+        this.getCurrent()
+        return (
+            <Loading />
+        )
     }
 }
 

@@ -37,6 +37,7 @@
         "react": "^15.6.2",
         "react-dom": "^15.6.1",
         "react-router-dom": "^4.2.2",
+        "react-timer-mixin": "^0.13.3",
         "sockjs-client": "^1.1.4",
         "source-list-map": "^2.0.0",
         "styled-components": "^3.2.3"
