@@ -15,7 +15,7 @@ BETWEEN_REQUEST_MAX_DELAY = 2500
 SETTING_RATIO = 5
 ANSWER_RATIO = 1
 # The API url
-API_URL = "http://api.quizzetoile.fr/api"
+API_URL = "https://api.quizzetoile.fr/api"
 
 def generate_name(length):
     return ''.join([random.choice(string.ascii_letters) for _ in range(length)])
