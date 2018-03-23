@@ -12,37 +12,39 @@
 */
 Auth::routes();
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
 
 
-/*
-|--------------------------------------------------------------------------
-| Route Question
-|--------------------------------------------------------------------------
-|
-*/
-Route::resource('question', 'QuestionController');
+    /*
+    |--------------------------------------------------------------------------
+    | Route Question
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::resource('question', 'QuestionController');
 
-Route::get('showQuestion/{question}', [
+    Route::get('showQuestion/{question}', [
     'as' => 'showQuestion',
     'uses' => 'QuestionController@showQuestion'
 ]);
 
-/*
-|--------------------------------------------------------------------------
-| Route Answer
-|--------------------------------------------------------------------------
-|
-*/
-Route::resource('answer', 'AnswerController');
+    /*
+    |--------------------------------------------------------------------------
+    | Route Answer
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::resource('answer', 'AnswerController');
 
-Route::get('answerCreate/{id}', [
+    Route::get('answerCreate/{id}', [
     'as' => 'answerCreate',
     'uses' => 'AnswerController@create'
 ]);
-Route::get('answerEdit/{id}/{questionId}', [
+    Route::get('answerEdit/{id}/{questionId}', [
     'as' => 'answerEdit',
     'uses' => 'AnswerController@edit'
 ]);
+});
