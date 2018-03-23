@@ -47,7 +47,6 @@ class Register extends React.Component {
 
 	render() {
 		if (this.state.user.id) {
-			console.log(this.state.user)
 			return <Quiz user={this.state.user} />
 		} else {
 			return (

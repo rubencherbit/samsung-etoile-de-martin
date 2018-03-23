@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import Loading from '../../Loading';
 /**
  * 
  * @param {*} param0 
@@ -10,10 +12,11 @@ class Questions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            answer_id: 0,
-            current_question: 1,
+            answer_id: null,
+            current_question: 0,
             user_id: this.props.user_id,
             question: null,
+            result: null,
             time: false,
         };
 
@@ -21,18 +24,23 @@ class Questions extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({ time: true });
-        }, 2000);
+        this.getQuestion();
+    }
+
+    getQuestion() {
+        this.setState({ current_question: this.state.current_question + 1})
         fetch('https://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
         })
             .then(res => res.json())
             .then(json => {
-                this.setState({ question: json.data})
+                this.setState({ question: json.data })
             })
+        
     }
+
     giveResult() {
+        console.log(this.state.answer_id);// eslint-disable-line
         fetch('https://api.quizzetoile.fr/api/questions/'+this.state.current_question+"/result", {
             method: 'POST',
             body: JSON.stringify({
@@ -42,7 +50,10 @@ class Questions extends React.Component {
             }),
             headers: { 'Content-Type': 'application/json' },
         })
-            .then(res => console.log(res.json()))// eslint-disable-line
+            .then(res => res.json())
+            .then(json => {
+                this.setState({ result: json.status_code})
+            })
 
     }
 
@@ -51,63 +62,70 @@ class Questions extends React.Component {
     }
 
     handleClick(event) {
-        this.setState({ answer_id: event.target.value })
-        this.giveResult();
+        this.setState({ answer_id: event.target.value, question: null })
+        this.giveResult()
         event.preventDefault();
     }
 
 
     render() {
+
         if (this.state.question) {
-            const answers = this.state.question.answers;
-            return (
-                <div className={this.props.className}>
-                    <div className="row" >
-                        <div className="grid-container" >
-                            <div className="col-6">
-                                <h3>Question N° {this.state.question.id}</h3>
-                                <br />
-                                <h2>{this.state.question.description}</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
+            if(this.state.question.id != 0 && this.state.question.id === this.state.current_question){
+                const answers = this.state.question.answers;
+                return (
+                    <div className={this.props.className}>
                         <div className="row" >
                             <div className="grid-container" >
                                 <div className="col-6">
-                                    <div className="row">
-                                        <div className="col-4 container-center" >
-                                            {answers.map((answer, key) => {
-                                                if(key < 2){
-                                                    return (
-                                                        <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
-                                                    )
-                                                }
-                                            })}
-                                            </div>
-                                        </div>
+                                    <h3>Question N° {this.state.question.id}</h3>
+                                    <br />
+                                    <h2>{this.state.question.description}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="row" >
+                                <div className="grid-container" >
+                                    <div className="col-6">
                                         <div className="row">
                                             <div className="col-4 container-center" >
                                                 {answers.map((answer, key) => {
-                                                    if (key > 1) {
+                                                    if(key < 2){
                                                         return (
                                                             <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
                                                         )
                                                     }
                                                 })}
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-4 container-center" >
+                                                    {answers.map((answer, key) => {
+                                                        if (key > 1) {
+                                                            return (
+                                                                <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
+                                                            )
+                                                        }
+                                                    })}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )
-            }
-
-        return(
-            <div>Loading ... </div>
-        )
+                    )
+                }
+        } else if(this.state.result) {
+            this.getQuestion()
+            return (<Loading />)
+        } else {
+            this.getQuestion()
+            return (
+                <Loading />
+            )
+        }
     }
 }
 
@@ -156,4 +174,5 @@ export default styled(Questions)`
             font-size: 1.1rem;
         }
     }
+    
 `;
