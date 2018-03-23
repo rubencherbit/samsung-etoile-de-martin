@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import CheckStart from '../../handlers/CheckStart';
 import Questions from './components/Questions';
+import Loading from '../Loading';
 
 /**
  * 
@@ -13,7 +14,6 @@ class Quiz extends React.Component{
 
     render() {
         const id = this.props.user.id;
-        console.log(id)
         return (
             <div className={this.props.className}>
             { CheckStart ? 
@@ -22,8 +22,11 @@ class Quiz extends React.Component{
                         <Questions user_id={id}/>
                     </div>
                 </div>
-                : 
-                <div>Loading...</div>
+                    : <div className="container">
+                        <div className="row">
+                            <Loading />
+                        </div>
+                    </div>
             }
             </div>
         )
