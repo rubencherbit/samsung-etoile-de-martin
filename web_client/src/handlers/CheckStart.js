@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const API = 'http://api.quizzetoile.fr/api/players';
+const API = 'http://api.quizzetoile.fr/api/settings';
 const opt = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

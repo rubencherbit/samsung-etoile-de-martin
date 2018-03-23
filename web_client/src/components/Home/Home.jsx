@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CheckStart from '../../handlers/CheckStart';
+
 /**
  * 
  * @param {*} param0 
@@ -10,7 +10,7 @@ const Home = ({ className }) => (
 	<div className={className}>
 		<div className="wrapper wrapper-home">
 			<div className="intro-container">
-				<h3 className="intro-text intro-text-first"><CheckStart /></h3>
+				<h3 className="intro-text intro-text-first">Bonsoir et bienvenue</h3>
 				<h3 className="intro-text intro-text-second">à la soirée bla bla bla!</h3>
 			</div>
 			<div className="intro-container intro-container-detail">
