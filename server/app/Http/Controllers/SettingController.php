@@ -14,22 +14,47 @@ class SettingController extends Controller
     public function show()
     {
         $setting = Setting::where('id', 1)->first();
-        $nb_question = 3;
         if ($setting) {
-            if ($setting->created_at) {
-                $now = Carbon::now();
-                $diff = $setting->created_at->diffInSeconds($now);
-                if ($diff >= $setting->question_id * 30) {
-                    $setting->question_id = $setting->question_id + 1;
-                    if ($setting->question_id >= 3) {
-                        $setting->end = 1;
-                    }
-                    $setting->save();
-                }
-                return $setting;
-            }
+            return $setting;
         }
+        return $this->response->errorNotFound();
+    }
 
+    public function next_question()
+    {
+        $setting = Setting::where('id', 1)->first();
+        if ($setting) {
+            $setting->question_id = $setting->question_id + 1;
+            $setting->save();
+
+            return $setting;
+        }
+        return $this->response->errorNotFound();
+    }
+
+    public function reset()
+    {
+        $setting = Setting::where('id', 1)->first();
+        if ($setting) {
+            $setting->question_id = 0;
+            $setting->end = 0;
+            $setting->save();
+
+            return $setting;
+        }
+        return $this->response->errorNotFound();
+    }
+
+
+    public function end()
+    {
+        $setting = Setting::where('id', 1)->first();
+        if ($setting) {
+            $setting->end = 1;
+            $setting->save();
+
+            return $setting;
+        }
         return $this->response->errorNotFound();
     }
 }

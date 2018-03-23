@@ -5,7 +5,7 @@
         </div>
 
         <div class="card-body">
-            <ul class="nav" role="tablist">
+            <ul class="nav" role="tablist" style="display: flex;flex-direction: column;">
                 <li role="presentation">
                     <a href="{{ url('/question') }}">
                         Questions
