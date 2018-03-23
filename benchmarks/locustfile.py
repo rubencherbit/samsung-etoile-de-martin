@@ -1,5 +1,5 @@
 from locust import HttpLocust, TaskSet, task
-import string, random
+import string, random, time
 
 DEBUG = False
 USERNAME_LENGTH = 10
@@ -15,6 +15,7 @@ class DumbPeopleBehavior(TaskSet):
 
     def on_start(self):
         print("On initialise")
+        time.sleep(0.1)
         self.register()
         pass
 
