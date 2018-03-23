@@ -33,7 +33,7 @@ class Register extends React.Component {
 				username: this.state.value
 			}),
 			headers: {
-				'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+				
 				'Content-Type': 'application/json',
 			},
 		})

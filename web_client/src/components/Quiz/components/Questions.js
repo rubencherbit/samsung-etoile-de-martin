@@ -34,7 +34,7 @@ class Questions extends React.Component {
         fetch('https://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
             headers: {
-                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+                
                 'Content-Type': 'application/json',
             }
         })
@@ -47,7 +47,7 @@ class Questions extends React.Component {
         fetch('https://api.quizzetoile.fr/api/setting', {
             method: 'GET',
             headers: {
-                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
+                
                 'Content-Type': 'application/json',
             }
         })
@@ -71,7 +71,6 @@ class Questions extends React.Component {
                 player_id: this.state.user_id,
             }),
             headers: { 
-                'Authorization': "NxxECWhsC+ekvXrqs8+atZp0jMw4nJOPhoe8CR5XHTw=",
                 'Content-Type': 'application/json',
             },
         })
