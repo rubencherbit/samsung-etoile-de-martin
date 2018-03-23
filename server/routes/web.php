@@ -16,6 +16,10 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
+Route::get('/display', function () {
+    return view('admin.display');
+});
+
 
 /*
 |--------------------------------------------------------------------------
