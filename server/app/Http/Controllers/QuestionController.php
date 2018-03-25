@@ -212,4 +212,9 @@ class QuestionController extends Controller
         }
         return $this->response->errorBadRequest();
     }
+
+    public function display()
+    {
+        return view('admin.display');
+    }
 }

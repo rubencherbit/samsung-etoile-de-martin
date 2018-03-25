@@ -8,8 +8,15 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="current">
-                        <h2>Question <span></span> en cours</h2>
                         <div class="statResult">
+                            <div class="jumbotron">
+                                <h2>Question <span></span> en cours</h2>
+                                <h3></h3>
+                                <div class="answer">
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
                             <p class="response"></p>
                         </div>
                     </div>

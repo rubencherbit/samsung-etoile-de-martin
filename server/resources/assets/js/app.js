@@ -27,14 +27,30 @@ const app = new Vue({
 
 const baseUrl = 'https://api.quizzetoile.fr/api/';
 
+function getQuestion(id) {
+    $.ajax({url: baseUrl + "questions/" + id, success: function(result){
+        $(".current").find('span').html(id);
+        $(".current").find('.jumbotron h3').html(result.data.description);
+        let html = '';
+        $.each(result.data.answers, function( index, value ) {
+            html += `<li>${value.description} (${value.score}) </li>`;
+        });
+        $(".current").find('ul').html(html);
+    }});
+}
 // Display Setting
-$.ajax({url: baseUrl + "setting", success: function(result){
-    $(".current").find('span').html(result.question_id);
-}});
+$.ajax({
+    url: baseUrl + "setting",
+    success: function(result) {
+        getQuestion(result.question_id);
+    }
+});
 
 $(".nextQuestion").click(function(){
     $.ajax({url: baseUrl + "setting/next", success: function(result){
         $(".current").find('span').html(result.question_id);
+        $(".current").find('.response').html('');
+        getQuestion(result.question_id);
     }});
 });
 
