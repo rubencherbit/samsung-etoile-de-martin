@@ -45,8 +45,12 @@ export default styled(Home)`
 				margin: auto;
 				color:#545454;
 				font-size: 1.5rem;
+				padding-left: 3rem;
+				text-align: left;
 				&-second {
 					text-align: right;
+					padding-left: 0;
+					padding-right: 3rem;
 				}
 			}
 		}
