@@ -20,3 +20,40 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+/**
+ * Display BO
+ */
+
+const baseUrl = 'https://api.quizzetoile.fr/api/';
+
+// Display Setting
+$.ajax({url: baseUrl + "setting", success: function(result){
+    $(".current").find('span').html(result.question_id);
+}});
+
+$(".nextQuestion").click(function(){
+    $.ajax({url: baseUrl + "setting/next", success: function(result){
+        $(".current").find('span').html(result.question_id);
+    }});
+});
+
+$(".resetQuestion").click(function(){
+    $.ajax({url: baseUrl + "setting/reset", success: function(result){
+        console.log(result);
+        $(".current").find('span').html(result.question_id);
+    }});
+});
+
+$(".statQuestion").click(function(){
+    const id =  $(".current").find('span').html();
+    $.ajax({url: baseUrl + "questions/" + id + "/score", success: function(result){
+        if(result) {
+            $(".current").find('.response').html(
+                'Bonne réponse : ' + result.true + ' % , ' +
+                'Mauvaise réponse : ' + result.false + ' %' ,
+            );
+        }
+    }});
+});
+
