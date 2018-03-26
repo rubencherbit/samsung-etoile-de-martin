@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 11);
@@ -13885,7 +13885,40 @@ window.Vue = __webpack_require__(36);
 Vue.component('example-component', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
+});
+
+/**
+ * Display BO
+ */
+
+var baseUrl = 'https://api.quizzetoile.fr/api/';
+
+// Display Setting
+$.ajax({ url: baseUrl + "setting", success: function success(result) {
+        $(".current").find('span').html(result.question_id);
+    } });
+
+$(".nextQuestion").click(function () {
+    $.ajax({ url: baseUrl + "setting/next", success: function success(result) {
+            $(".current").find('span').html(result.question_id);
+        } });
+});
+
+$(".resetQuestion").click(function () {
+    $.ajax({ url: baseUrl + "setting/reset", success: function success(result) {
+            console.log(result);
+            $(".current").find('span').html(result.question_id);
+        } });
+});
+
+$(".statQuestion").click(function () {
+    var id = $(".current").find('span').html();
+    $.ajax({ url: baseUrl + "questions/" + id + "/score", success: function success(result) {
+            if (result) {
+                $(".current").find('.response').html('Bonne réponse : ' + result.true + ' % , ' + 'Mauvaise réponse : ' + result.false + ' %');
+            }
+        } });
 });
 
 /***/ }),

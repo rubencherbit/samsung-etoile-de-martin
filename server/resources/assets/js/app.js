@@ -20,3 +20,56 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+/**
+ * Display BO
+ */
+
+const baseUrl = 'https://api.quizzetoile.fr/api/';
+
+function getQuestion(id) {
+    $.ajax({url: baseUrl + "questions/" + id, success: function(result){
+        $(".current").find('span').html(id);
+        $(".current").find('.jumbotron h3').html(result.data.description);
+        let html = '';
+        $.each(result.data.answers, function( index, value ) {
+            html += `<li>${value.description} (${value.score}) </li>`;
+        });
+        $(".current").find('ul').html(html);
+    }});
+}
+// Display Setting
+$.ajax({
+    url: baseUrl + "setting",
+    success: function(result) {
+        getQuestion(result.question_id);
+    }
+});
+
+$(".nextQuestion").click(function(){
+    $.ajax({url: baseUrl + "setting/next", success: function(result){
+        $(".current").find('span').html(result.question_id);
+        $(".current").find('.response').html('');
+        getQuestion(result.question_id);
+    }});
+});
+
+$(".resetQuestion").click(function(){
+    $.ajax({url: baseUrl + "setting/reset", success: function(result){
+        console.log(result);
+        $(".current").find('span').html(result.question_id);
+    }});
+});
+
+$(".statQuestion").click(function(){
+    const id =  $(".current").find('span').html();
+    $.ajax({url: baseUrl + "questions/" + id + "/score", success: function(result){
+        if(result) {
+            $(".current").find('.response').html(
+                'Bonne réponse : ' + result.true + ' % , ' +
+                'Mauvaise réponse : ' + result.false + ' %' ,
+            );
+        }
+    }});
+});
+
