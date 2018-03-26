@@ -1,0 +1,8 @@
+version: '3'
+services:
+  locust:
+    image: christianbladescb/locustio:latest
+    volumes:
+      - ./locustfile.py:/locust/locustfile.py
+    ports:
+      - 8089:8089
