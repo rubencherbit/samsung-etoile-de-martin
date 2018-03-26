@@ -12,3 +12,35 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.answer ul {
+   list-style: none;
+   display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+ }
+
+.answer ul li {
+  width: calc(50% - 20px);
+  text-align: center;
+  background: pink;
+  margin: 10px;
+  padding: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  margin: 10px;
+  width: 100px;
+  border: transparent;
+  background: #c7f2fa;
+  padding: 5px;
+}
+
+.response {
+  text-align: center;
+}
