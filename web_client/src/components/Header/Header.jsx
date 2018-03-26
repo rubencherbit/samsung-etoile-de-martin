@@ -32,6 +32,7 @@ export default styled(HeaderComponent)`
 		}
         .btn {
         	&.pink {
+        		z-index: 1;
             	position: fixed;
             	left: 0;
             	bottom:0;

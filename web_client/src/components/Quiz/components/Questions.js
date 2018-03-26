@@ -99,7 +99,7 @@ class Questions extends React.Component {
                 const answers = this.state.question.answers;
                 return (
                     <div className={this.props.className}>
-                        <div className="row" >
+                        <div className="row">
                             <div className="grid-container" >
                                 <div className="col-6">
                                     <h3>Question N° {this.state.question.id}</h3>
@@ -107,7 +107,7 @@ class Questions extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row container-answer">
                             <div className="row" >
                                 <div className="grid-container" >
                                     <div className="col-6">
@@ -209,6 +209,9 @@ export default styled(Questions)`
             box-shadow: 0px 7px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
             font-size: 1.1rem;
         }
+    }
+    .conainter-answer {
+        margin: 0 0 3rem;
     }
     
 `;
