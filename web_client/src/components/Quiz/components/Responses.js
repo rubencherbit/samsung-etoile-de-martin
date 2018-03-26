@@ -66,6 +66,10 @@ export default styled(Responses) `
         align-items: center;
         margin: .5rem 0;
     }
+    .container-center {
+        animation: animationAppear .45s ease-out forwards;
+        animation-delay: .25s;
+    }
     .btn-answer {
         color: #ffffff;
         font-size: 20px;
@@ -81,6 +85,7 @@ export default styled(Responses) `
         border-radius: 10px;
         box-shadow: 0px 10px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
         transition: .15s ease-out;
+        
         &:focus {
             transition: .15s ease-out;
             box-shadow: 0px 7px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;

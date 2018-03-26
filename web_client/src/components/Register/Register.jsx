@@ -87,6 +87,7 @@ export default styled(Register) `
 		color:#545454;
 		font-size: 2.25rem;
 		margin: 50px 0;
+		animation: animationAppear .25s ease-out forwards;
 	}
 	input {
 		padding: 15px 20px;
@@ -95,9 +96,11 @@ export default styled(Register) `
 		margin-bottom: 50px;
 		font-size: 1rem;
 		font-family: 'Quicksand',sans-serif;
+		animation: animationAppear .45s ease-out forwards;
 	}
 	.container-btn {
 		text-align:center;
+		animation: animationAppear .45s ease-out forwards;
 		.btn-play {
 			color: #ffffff;
 			font-size: 20px;

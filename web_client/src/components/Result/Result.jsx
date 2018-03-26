@@ -66,7 +66,9 @@ export default styled(Result) `
             position: absolute;
             bottom: 0;
             left: -10px;
-                    box-shadow: 0px 0px 20px 0px rgba(150,150,150, .2);
+            box-shadow: 0px 0px 20px 0px rgba(150,150,150, .2);
+            height:0%;
+            transition: .35s ease-out; 
             &-good {
                 background:#00abb5;
                 border-bottom: 3px solid #499fa3;

@@ -83,7 +83,7 @@ export default styled(HeaderComponent)`
 			}
         }  
 		img {
-            width: 100px;
+            width: 10rem;
             max-width: 100%;
             margin: 1rem 1rem 1rem 1rem;
 		}
