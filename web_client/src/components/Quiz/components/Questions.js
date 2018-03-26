@@ -169,10 +169,10 @@ export default styled(Questions)`
     h3 {
         color:#545454;
         margin: 20px 0 0;
-        font-size: 1rem;
+        font-size: .75rem;
     }
     h2 {
-        font-size: 2rem;
+        font-size: 1rem;
         color:#545454;
     }
     .container-center {
