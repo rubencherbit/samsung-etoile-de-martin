@@ -6,32 +6,35 @@ import styled from 'styled-components';
  * @param {*} param0 
  */
 const Result = ({ className }) => (
-    <div className={className}>
-    
-        <div className="wrapper wrapper-result">
-            <h3>Resultats</h3>            
-            <div className="container-result">
-                <div className="row">
-                    <div className="good-result">
-                        <div className="result">
-                            <div className="container-percentage">
-                                <div className="percentage percentage-good" style={{ height: 30 + '%' }}></div>
+
+    render() {
+        <div className={className}>
+        
+            <div className="wrapper wrapper-result">
+                <h3>Resultats</h3>            
+                <div className="container-result">
+                    <div className="row">
+                        <div className="good-result">
+                            <div className="result">
+                                <div className="container-percentage">
+                                    <div className="percentage percentage-good" style={{ height: 30 + '%' }}></div>
+                                </div>
+                                <p> 30% </p>
                             </div>
-                            <p> 30% </p>
                         </div>
-                    </div>
-                    <div className="bad-result">
-                        <div className="result">
-                            <div className="container-percentage">
-                                <div className="percentage percentage-bad" style={{ height: 70 +'%' }}></div>
+                        <div className="bad-result">
+                            <div className="result">
+                                <div className="container-percentage">
+                                    <div className="percentage percentage-bad" style={{ height: 70 +'%' }}></div>
+                                </div>
+                                <p> 70% </p>
                             </div>
-                            <p> 70% </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
 )
 
 Result.propTypes = {

@@ -26,6 +26,7 @@ class Register extends React.Component {
 	handleChange(event) {
 		this.setState({ value: event.target.value });
 	}
+
 	getUser() {
 		fetch('https://api.quizzetoile.fr/api/players', {
 			method: 'POST',
@@ -102,6 +103,7 @@ export default styled(Register) `
 		opacity:0;
 		animation: animationAppear .45s ease-out forwards;
 		animation-delay: .5s;
+		width: 100%;
 	}
 	.container-btn {
 		text-align:center;
