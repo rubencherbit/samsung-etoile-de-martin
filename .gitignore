@@ -1,4 +1,6 @@
-nodes_modules/
+web_client/nodes_modules/
 .DS_Store
 __pycache__/
 .vscode/
+node_modules
+yarn-error.log

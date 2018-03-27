@@ -20,7 +20,7 @@ class Questions extends React.Component {
             result: null,
             time: false,
             next: null,
-            end: null,
+            end: 0,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -146,7 +146,7 @@ class Questions extends React.Component {
                 <Loading />
             )
         }
-        if(this.state.end != 0) {
+        if(this.state.end !== 0) {
             return (
                 <Result />
             )
@@ -170,10 +170,16 @@ export default styled(Questions)`
         color:#545454;
         margin: 20px 0 0;
         font-size: .75rem;
+        opacity: 0;
+        animation: animationAppear .25s ease-out forwards;
+        animation-delay: .25s;
     }
     h2 {
         font-size: 1rem;
         color:#545454;
+        opacity: 0;
+        animation: animationAppear .25s ease-out forwards;
+        animation-delay: .5s;
     }
     .container-center {
         display: flex;
@@ -182,6 +188,9 @@ export default styled(Questions)`
         margin: .25rem 0 0;
         color:#545454;
         font-size: .75rem;
+        opacity: 0;
+        animation: animationAppear .25s ease-out forwards;
+        animation-delay: .75s;
     }
     .btn-answer {
         width: 100%;
@@ -210,7 +219,7 @@ export default styled(Questions)`
             font-size: 1.1rem;
         }
     }
-    .conainter-answer {
+    .container-answer {
         margin: 0 0 3rem;
     }
     

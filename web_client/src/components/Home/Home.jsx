@@ -19,8 +19,8 @@ const Home = ({ className }) => (
 				<div className="btn btn-play">
 					<a href="/quiz" className="btn-home">Quizz</a> 
 				</div>
-				<div className="btn">
-					<a href="https://twitter.com/intent/tweet?text=Soutenez+l'association+L'etoile+de+Martin&hashtags=grandirsanscancer" title="twitter #grandirsanscancer" className="btn-twitte">Je twitte</a> 
+				<div className="btn btn-tweet-container">
+					<a href="https://twitter.com/intent/tweet?text=Soutenez+l'association+L'etoile+de+Martin&hashtags=grandirsanscancer" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a> 
 				</div>
 			</div>
 		</div>
@@ -38,15 +38,13 @@ export default styled(Home)`
 		min-height: 100vh;
 		padding:5px 10px;
 		.intro-container {
-			margin: 20px 0 50px;
-			p {
-				padding: 0 1.25rem;
-				animation: animationAppear .45s ease-out forwards;
-			}
+		margin: 20px 0 50px;
 		}
 		h3 {
 			margin:0;
+			opacity:0;
 			animation: animationAppear .25s ease-out forwards;
+			animation-delay: .25s;
 			&.intro-text {
 				margin: auto;
 				color:#545454;
@@ -60,19 +58,33 @@ export default styled(Home)`
 				}
 			}
 		}
+		p {
+			opacity:0;
+			padding: 0 1.25rem;
+			animation: animationAppear .45s ease-out forwards;
+			animation-delay: .5s;
+		}
 		.container-btn {
 			text-align:center;
-			animation: animationAppear .65s ease-out forwards;
 			margin: 0 0 100px;
 			.btn {
 				min-height: 100%;
 				display: block;
 				margin: 20px 0;
+				opacity:0;
+				&-play {
+					animation: animationAppear .65s ease-out forwards;
+					animation-delay: .75s;
+				}
+				&-tweet-container {
+					animation: animationAppear .65s ease-out forwards;
+					animation-delay: 1s;
+				}
   				a {
   					display: block;
   				}
 			}
-			.btn-home, .btn-twitte {
+			.btn-home, .btn-tweete {
 				text-decoration: none;
 				text-transform: uppercase;
 				font-weight: bold;
@@ -97,7 +109,7 @@ export default styled(Home)`
   					font-size: 1.1rem;
   				}
 			}
-			.btn-twitte {
+			.btn-tweete {
 				background: #1da1f2;
   				box-shadow: 0px 10px 0px 0px #0d8ddb, 0px 0px 20px 0px #bbb;
 			}
