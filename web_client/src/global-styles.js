@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 /**
- * 
+ *
  */
 injectGlobal`
 	@import "node_modules/foundation-sites/scss/foundation";
@@ -22,18 +22,12 @@ injectGlobal`
 
 	body {
 		font-family: 'Quicksand', sans-serif;
-		@media all and (max-width:800px){
-			overflow:hidden;
-		}
-		@media all and (max-width:320px){
-			overflow-y:scroll;
-		}
 	}
 
 	body.fontLoaded {
 		font-family: 'Quicksand', sans-serif;
 	}
-	
+
 
 	#react {
 		background-color: #fafafa;
@@ -50,12 +44,12 @@ injectGlobal`
 		line-height: 1.5em;
 	}
 	.grid-container{
-        width: 100%; 
-        max-width: 1200px;      
+        width: 100%;
+        max-width: 1200px;
     }
 
-    /*-- our cleafix hack -- */ 
-    .row:before, 
+    /*-- our cleafix hack -- */
+    .row:before,
     .row:after {
         content:"";
         display: table ;
@@ -63,11 +57,11 @@ injectGlobal`
     }
 
     [class*='col-'] {
-        float: left; 
-        min-height: 1px; 
-        width: 16.66%; 
+        float: left;
+        min-height: 1px;
+        width: 16.66%;
         /*-- our gutter -- */
-        padding: 12px; 
+        padding: 12px;
     }
 
     .col-1{ width: 16.66%; }
@@ -78,14 +72,14 @@ injectGlobal`
     .col-6{ width: 100%;   }
 
     .outline, .outline *{
-        outline: 1px solid #F6A1A1; 
+        outline: 1px solid #F6A1A1;
     }
 
     /*-- some extra column content styling --*/
     [class*='col-'] > p {
      padding: 0;
      margin: 0;
-     text-align: center; 
+     text-align: center;
 	}
 	@media all and (max-width:800px){
         .col-1{ width: 33.33%;  }
@@ -96,11 +90,11 @@ injectGlobal`
         .col-6{ width: 100%;    }
 
         .row .col-2:last-of-type{
-            width: 100%; 
+            width: 100%;
         }
 
         .row .col-5 ~ .col-1{
-            width: 100%; 
+            width: 100%;
         }
 	}
 	@keyframes fadeOut {
@@ -127,7 +121,7 @@ injectGlobal`
         .col-5{ width: 100%;    }
         .col-6{ width: 100%;    }
     }
-	
+
 	    .btn.normal {
             background: #34d99c;
 			background-image: -webkit-linear-gradient(top, #34d99c, #42eda9);
@@ -159,7 +153,7 @@ injectGlobal`
 		&-text {
 			h1 {
 				span {
-					font-size: 1.25rem; 
+					font-size: 1.25rem;
 					color:#545454;
 				}
 			}
