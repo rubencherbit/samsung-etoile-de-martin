@@ -7,7 +7,6 @@ import styled from 'styled-components';
  */
 const Result = ({ className }) => (
 
-    render() {
         <div className={className}>
         
             <div className="wrapper wrapper-result">
@@ -34,7 +33,6 @@ const Result = ({ className }) => (
                 </div>
             </div>
         </div>
-    }
 )
 
 Result.propTypes = {
