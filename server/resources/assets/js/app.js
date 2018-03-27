@@ -56,11 +56,15 @@ $(".nextQuestion").click(function(){
 
 $(".resetQuestion").click(function(){
     $.ajax({url: baseUrl + "setting/reset", success: function(result){
-        console.log(result);
         $(".current").find('span').html(result.question_id);
     }});
 });
-
+$(".endQuestion").click(function () {
+    $.ajax({
+        url: baseUrl + "setting/end", success: function (result) {
+        }
+    });
+});
 $(".statQuestion").click(function(){
     const id =  $(".current").find('span').html();
     $.ajax({url: baseUrl + "questions/" + id + "/score", success: function(result){
