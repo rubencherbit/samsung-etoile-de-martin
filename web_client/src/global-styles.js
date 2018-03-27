@@ -22,6 +22,12 @@ injectGlobal`
 
 	body {
 		font-family: 'Quicksand', sans-serif;
+		@media all and (max-width:800px){
+			overflow:hidden;
+		}
+		@media all and (max-width:320px){
+			overflow-y:scroll;
+		}
 	}
 
 	body.fontLoaded {

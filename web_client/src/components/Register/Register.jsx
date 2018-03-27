@@ -85,9 +85,12 @@ export default styled(Register) `
 	}
 	h3 {
 		color:#545454;
-		font-size: 2.25rem;
+		font-size: 1rem;
+		padding: 0 2rem;
 		margin: 50px 0;
+		opacity:0;
 		animation: animationAppear .25s ease-out forwards;
+		animation-delay: .25s;
 	}
 	input {
 		padding: 15px 20px;
@@ -96,11 +99,15 @@ export default styled(Register) `
 		margin-bottom: 50px;
 		font-size: 1rem;
 		font-family: 'Quicksand',sans-serif;
+		opacity:0;
 		animation: animationAppear .45s ease-out forwards;
+		animation-delay: .5s;
 	}
 	.container-btn {
 		text-align:center;
+		opacity:0;
 		animation: animationAppear .45s ease-out forwards;
+		animation-delay: .75s;
 		.btn-play {
 			color: #ffffff;
 			font-size: 20px;
