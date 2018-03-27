@@ -7,14 +7,14 @@ import styled from 'styled-components';
 import Quiz from '../Quiz';
 
 /**
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 
 class Register extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
 			value: '',
 			user: {},
 		};
@@ -33,7 +33,7 @@ class Register extends React.Component {
 				username: this.state.value
 			}),
 			headers: {
-				
+
 				'Content-Type': 'application/json',
 			},
 		})
@@ -55,9 +55,9 @@ class Register extends React.Component {
 			return (
 				<div className={this.props.className}>
 					<div className="wrapper wrapper-register">
-						<h3>Merci de bien vouloir nous indiquer votre numéro de table :</h3>
+						<h3 class="intro-text intro-text-first">Merci de bien vouloir nous indiquer votre numéro de table :</h3>
 						<form onSubmit={this.handleSubmit}>
-							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
+							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 1-7" />
 							<div className="container-btn">
 								<div className="btn">
 									<button className="btn-play" type="submit">Jouer</button>
