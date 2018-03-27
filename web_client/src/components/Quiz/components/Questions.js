@@ -20,7 +20,7 @@ class Questions extends React.Component {
             result: null,
             time: false,
             next: null,
-            end: null,
+            end: 0,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -146,7 +146,7 @@ class Questions extends React.Component {
                 <Loading />
             )
         }
-        if(this.state.end != 0) {
+        if(this.state.end !== 0) {
             return (
                 <Result />
             )
