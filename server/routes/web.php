@@ -17,6 +17,11 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function () {
         return view('admin.dashboard');
     });
 
+Route::get('/display', [
+    'as' => 'display',
+    'uses' => 'QuestionController@display'
+]);
+
 
     /*
     |--------------------------------------------------------------------------

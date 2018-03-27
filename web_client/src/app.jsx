@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
+import Result from './components/Result';
 // Import CSS reset and Global Styles
 import './global-styles';
 
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Switch>
                 <Route exact path='/' component={ Home } />
                 <Route exact path='/quiz' component={Register } />
+                <Route exact path='/result' component={Result } />
                 <Route component={ NotFound } />
             </Switch>
         </div>

@@ -97,6 +97,22 @@ injectGlobal`
             width: 100%; 
         }
 	}
+	@keyframes fadeOut {
+		from {
+			opacity: 0;
+		} to {
+			opacity: 1;
+		}
+	}
+	@keyframes animationAppear {
+		from{
+			transform: translateY(15px);
+			opacity:0;
+		} to {
+			transform: translateY(0px);
+			opacity:1;
+		}
+	}
 	@media all and (max-width:650px){
         .col-1{ width: 50%;     }
         .col-2{ width: 100%;    }

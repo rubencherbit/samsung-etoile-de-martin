@@ -32,6 +32,7 @@ export default styled(HeaderComponent)`
 		}
         .btn {
         	&.pink {
+        		z-index: 1;
             	position: fixed;
             	left: 0;
             	bottom:0;
@@ -83,7 +84,7 @@ export default styled(HeaderComponent)`
 			}
         }  
 		img {
-            width: 100px;
+            width: 10rem;
             max-width: 100%;
             margin: 1rem 1rem 1rem 1rem;
 		}

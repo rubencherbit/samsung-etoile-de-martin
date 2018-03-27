@@ -99,40 +99,39 @@ class Questions extends React.Component {
                 const answers = this.state.question.answers;
                 return (
                     <div className={this.props.className}>
-                        <div className="row" >
+                        <div className="row">
                             <div className="grid-container" >
                                 <div className="col-6">
                                     <h3>Question N° {this.state.question.id}</h3>
-                                    <br />
                                     <h2>{this.state.question.description}</h2>
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row container-answer">
                             <div className="row" >
                                 <div className="grid-container" >
                                     <div className="col-6">
                                         <div className="row">
-                                            <div className="col-4 container-center" >
                                                 {answers.map((answer, key) => {
                                                     if(key < 2){
                                                         return (
+                                                        <div className="col-4 container-center" >
                                                             <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
+                                                        </div>
                                                         )
                                                     }
                                                 })}
-                                                </div>
                                             </div>
                                             <div className="row">
-                                                <div className="col-4 container-center" >
                                                     {answers.map((answer, key) => {
                                                         if (key > 1) {
                                                             return (
+                                                            <div className="col-4 container-center" >
                                                                 <button key={key} onClick={this.handleClick} value={answer.id} className="btn-answer" >{answer.description}</button>
+                                                            </div>
                                                             )
                                                         }
                                                     })}
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -169,18 +168,25 @@ Questions.propTypes = {
 export default styled(Questions)`
     h3 {
         color:#545454;
-        font-size: 2rem;
-        margin: 20px 0;
+        margin: 20px 0 0;
+        font-size: .75rem;
     }
-        .container-center {
+    h2 {
+        font-size: 1rem;
+        color:#545454;
+    }
+    .container-center {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: .5rem 0;
+        margin: .25rem 0 0;
+        color:#545454;
+        font-size: .75rem;
     }
     .btn-answer {
+        width: 100%;
         color: #ffffff;
-        font-size: 20px;
+        font-size: 1rem;
         text-transform: uppercase;
         font-weight: bold;
         text-decoration: none;
@@ -203,6 +209,9 @@ export default styled(Questions)`
             box-shadow: 0px 7px 0px 0px #499fa3, 0px 0px 20px 0px #bbb;
             font-size: 1.1rem;
         }
+    }
+    .conainter-answer {
+        margin: 0 0 3rem;
     }
     
 `;
