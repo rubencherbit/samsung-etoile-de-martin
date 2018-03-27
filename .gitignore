@@ -3,3 +3,4 @@ web_client/nodes_modules/
 __pycache__/
 .vscode/
 node_modules
+yarn-error.log
