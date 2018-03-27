@@ -60,7 +60,7 @@ class Register extends React.Component {
 							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 1-7" />
 							<div className="container-btn">
 								<div className="btn">
-									<button className="btn-play" type="submit">Jouer</button>
+									<button className="btn-play" type="submit">Je participe</button>
 								</div>
 							</div>
 						</form>

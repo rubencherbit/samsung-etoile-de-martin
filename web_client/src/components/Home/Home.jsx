@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /**
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 const Home = ({ className }) => (
 	<div className={className}>
 		<div className="wrapper wrapper-home">
 			<div className="intro-container intro-container-detail">
 				<h3 className="intro-text intro-text-first">Bonsoir,</h3>
-				<p>Répondez correctement à 3 questions, vous pouvez faire monter la donation à l’Etoile de Martin. </p>
-				<p>N’hésitez pas à vous faire aider ! </p>
-				<p>D’avance merci de votre participation ! </p>
+				<p>Répondez correctement aux 3 questions du Quizz, et faites monter la donation à l’Etoile de Martin !</p>
+				<p>D’avance merci de votre participation,</p>
+				<p>Les étudiants du Samsung Campus</p>
 			</div>
 			<div className="container-btn">
 				<div className="btn btn-play">
-					<a href="/quiz" className="btn-home">Quizz</a> 
+					<a href="/quiz" className="btn-home">Quizz</a>
 				</div>
 				<div className="btn btn-tweet-container">
-					<a href="https://twitter.com/intent/tweet?text=Soutenez+l'association+L'etoile+de+Martin&hashtags=grandirsanscancer" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a> 
+					<a href="https://twitter.com/home?status=Soutenez%20l'Etoile%20de%20Martin%20avec%20%23grandirsanscancer%20%3A%20100%20euros%20vers%C3%A9s%20%C3%A0%20l%E2%80%99association%20ce%20soir%20par%20hashtag%20publi%C3%A9%20!%20(dans%20la%20limite%20de%20100.000%20euros)" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a>
 				</div>
 			</div>
 		</div>
