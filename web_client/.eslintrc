@@ -21,6 +21,7 @@
         "module": true,
         "fetch": true,
         "setTimeout": true,
-        "console": true
+        "console": true,
+        "setInterval": true
     }
 }
