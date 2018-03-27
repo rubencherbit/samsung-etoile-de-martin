@@ -55,7 +55,7 @@ class Register extends React.Component {
 			return (
 				<div className={this.props.className}>
 					<div className="wrapper wrapper-register">
-						<h3>N° de vestiaire</h3>
+						<h3>Merci de bien vouloir nous indiquer votre numéro de table :</h3>
 						<form onSubmit={this.handleSubmit}>
 							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 4548947" />
 							<div className="container-btn">
