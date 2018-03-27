@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import Loading from '../../Loading';
 import Result from '../../Result';
 /**
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 class Questions extends React.Component {
     constructor(props) {
@@ -27,14 +27,13 @@ class Questions extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
-        this.getCurrent()
-    }
+        setInterval(() => this.getCurrent(), 1000)    }
 
     getQuestion() {
         fetch('https://api.quizzetoile.fr/api/questions/' + this.state.current_question, {
             method: 'GET',
             headers: {
-                
+
                 'Content-Type': 'application/json',
             }
         })
@@ -47,7 +46,7 @@ class Questions extends React.Component {
         fetch('https://api.quizzetoile.fr/api/setting', {
             method: 'GET',
             headers: {
-                
+
                 'Content-Type': 'application/json',
             }
         })
@@ -70,7 +69,7 @@ class Questions extends React.Component {
                 answer_id: this.state.answer_id,
                 player_id: this.state.user_id,
             }),
-            headers: { 
+            headers: {
                 'Content-Type': 'application/json',
             },
         })
@@ -141,7 +140,7 @@ class Questions extends React.Component {
                     )
                 }
         } else if(this.state.result){
-            this.getCurrent()
+            setInterval(() => this.getCurrent(), 1000);
             return (
                 <Loading />
             )
@@ -151,7 +150,7 @@ class Questions extends React.Component {
                 <Result />
             )
         }
-        this.getCurrent()
+        // setInterval(() => this.getCurrent(), 1000);
         return (
             <Loading />
         )
@@ -222,5 +221,5 @@ export default styled(Questions)`
     .container-answer {
         margin: 0 0 3rem;
     }
-    
+
 `;
