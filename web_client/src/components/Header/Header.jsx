@@ -52,6 +52,7 @@ export default styled(HeaderComponent) `
 				cursor: pointer;
 
         	}
+
         	.heart {
 				background-color: #5db2b6;
 				display: inline-block;
@@ -59,9 +60,9 @@ export default styled(HeaderComponent) `
 				margin: 0 5px;
 				position: relative;
 				top: 1px;
-				transform: rotate(-45deg);
-				width: 10px;
 				left: 10px;
+                transform: rotate(-45deg);
+                width: 10px;
 			}
 
 			.heart:before,
