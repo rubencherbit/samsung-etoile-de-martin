@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 /**
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 const Result = ({ className }) => (
 
         <div className={className}>
-        
+
             <div className="wrapper wrapper-result">
-                <h3>Resultats</h3>
+                {/* <h3>Resultats</h3> */}
                 <div className="container-result">
                     <div className="row">
                         <p>Merci d’avoir participé! Pour générer plus de dons n’oubliez pas de tweeter!</p>
