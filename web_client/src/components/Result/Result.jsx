@@ -10,24 +10,14 @@ const Result = ({ className }) => (
         <div className={className}>
         
             <div className="wrapper wrapper-result">
-                <h3>Resultats</h3>            
+                <h3>Resultats</h3>
                 <div className="container-result">
                     <div className="row">
-                        <div className="good-result">
-                            <div className="result">
-                                <div className="container-percentage">
-                                    <div className="percentage percentage-good" style={{ height: 30 + '%' }}></div>
-                                </div>
-                                <p> 30% </p>
-                            </div>
-                        </div>
-                        <div className="bad-result">
-                            <div className="result">
-                                <div className="container-percentage">
-                                    <div className="percentage percentage-bad" style={{ height: 70 +'%' }}></div>
-                                </div>
-                                <p> 70% </p>
-                            </div>
+                        <p>Merci d’avoir participé! Pour générer plus de dons n’oubliez pas de tweeter!</p>
+                    </div>
+                    <div className="row">
+                        <div className="btn btn-tweet-container">
+                          <a href="https://twitter.com/home?status=Soutenez%20l'Etoile%20de%20Martin%20avec%20%23grandirsanscancer%20%3A%20100%20euros%20vers%C3%A9s%20%C3%A0%20l%E2%80%99association%20ce%20soir%20par%20hashtag%20publi%C3%A9%20!%20(dans%20la%20limite%20de%20100.000%20euros)" target="__blank" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a>
                         </div>
                     </div>
                 </div>
@@ -53,42 +43,33 @@ export default styled(Result) `
         display: flex;
         justify-content:center;
         flex-wrap:wrap;
+        padding: 0 2rem;
+        margin-bottom: 1rem;
     }
-    .good-result, .bad-result {
-        width: 50%;
-        display:inline-block;
-        padding: 0 .75rem;
-    }
-    .container-percentage {
-        height: 170px;
-        position:relative;
-        .percentage {
-            width: 20px;
-            position: absolute;
-            bottom: 0;
-            left: -10px;
-            box-shadow: 0px 0px 20px 0px rgba(150,150,150, .2);
-            height:0%;
-            transition: .35s ease-out; 
-            &-good {
-                background:#00abb5;
-                border-bottom: 3px solid #499fa3;
-            }
-            &-bad {
-                background:#c32148;
-                border-bottom: 3px solid #a11b3c;
-            }
+
+    .btn-tweete {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 3px;
+        padding: 1rem 3rem;
+        margin: 0;
+        color: #ffffff;
+        font-size: 20px;
+        font-family: 'Quicksand',sans-serif;
+        border-radius: 10px;
+        transition: .15s ease-out;
+        background: #1da1f2;
+        box-shadow: 0px 10px 0px 0px #0d8ddb, 0px 0px 20px 0px #bbb;
+        &:focus {
+            transition: .15s ease-out;
+            box-shadow: 0px 7px 0px 0px #0d8ddb, 0px 0px 20px 0px #bbb;
+            font-size: 1.1rem;
         }
-    }
-    .result {
-        display: flex;
-        justify-content:center;
-        flex-direction: column;
-        align-items:center;
-        width: 100%;
-        text-align:center;
-        &:first-child {
-            border-bottom: 1px solid rgba(0,0,0, .1);
+        &:hover {
+            transition: .15s ease-out;
+            box-shadow: 0px 7px 0px 0px #0d8ddb, 0px 0px 20px 0px #bbb;
+            font-size: 1.1rem;
         }
     }
 
