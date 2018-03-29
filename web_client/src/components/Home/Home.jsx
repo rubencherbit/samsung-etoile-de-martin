@@ -20,7 +20,7 @@ const Home = ({ className }) => (
 					<a href="/quiz" className="btn-home">Quizz</a>
 				</div>
 				<div className="btn btn-tweet-container">
-					<a href="https://twitter.com/home?status=Soutenez%20l'Etoile%20de%20Martin%20avec%20%23grandirsanscancer%20%3A%20100%20euros%20vers%C3%A9s%20%C3%A0%20l%E2%80%99association%20ce%20soir%20par%20hashtag%20publi%C3%A9%20!%20(dans%20la%20limite%20de%20100.000%20euros)" target="__blank" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a>
+					<a href="https://twitter.com/home?status=Soutenez%20l'Etoile%20de%20Martin%20avec%20%23grandirsanscancer%20%3A%20100%20euros%20vers%C3%A9s%20%C3%A0%20l%E2%80%99association%20ce%20soir%20par%20hashtag%20publi%C3%A9%20!%20(dans%20la%20limite%20de%20100.000%20euros)" title="twitter #grandirsanscancer" className="btn-tweete">Je tweete</a>
 				</div>
 			</div>
 		</div>
