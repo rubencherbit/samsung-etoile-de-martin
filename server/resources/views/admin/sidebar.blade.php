@@ -16,6 +16,11 @@
                         Answers
                     </a>
                 </li>
+                <li role="presentation">
+                    <a href="{{ url('/display') }}">
+                        display
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
