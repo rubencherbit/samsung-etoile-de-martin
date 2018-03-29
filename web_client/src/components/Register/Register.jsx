@@ -58,7 +58,7 @@ class Register extends React.Component {
 					<div className="wrapper wrapper-register">
 						<h3 class="intro-text intro-text-first">Merci de bien vouloir nous indiquer votre numéro de table :</h3>
 						<form onSubmit={this.handleSubmit}>
-							<input type="number" value={this.state.value} onChange={this.handleChange} placeholder="EX : 1-7" min="1" max="7"/>
+							<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="EX : 1-7" />
 							<div className="container-btn">
 								<div className="btn">
 									<button className="btn-play" type="submit">Je participe</button>
