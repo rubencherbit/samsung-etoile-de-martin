@@ -1,7 +1,7 @@
 # Quiz for Projet caritatif
 
 
-* projet realiser pour une soirée caritative pour l'association l'étoile de martin
+* Projet réalisé pour une soirée caritative pour l'association l'étoile de martin
 ( project realized for a charity evening for the association l'étoile de martin )
 
 * <a target="_blank" href="https://letoiledemartin.fr/" ><img src="https://stockagehelloassoprod.blob.core.windows.net/images/photos/edm-odyssea.jpg" height="130rem" /></a>
