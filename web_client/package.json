@@ -27,7 +27,7 @@
         "babel": "^6.23.0",
         "eslint": "^4.19.0",
         "fetch": "^1.1.0",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.19",
         "minimalistic-assert": "^1.0.0",
         "node-fetch": "^2.1.1",
         "obj-filter": "^1.3.1",
